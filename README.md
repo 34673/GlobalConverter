@@ -1,21 +1,27 @@
 # GlobalConverter
 
-/!\ This project only exists as a solution to a development course test /!\
+/!\ This project only exists as a solution to a development course test. Could also use some more polish, but I needed to ship this fast for administrative reasons /!\
 
-Command-line app for converting a message from/to different numeric bases or text, with optional encryption (see alternate branch for encryption).
+Command-line app for converting a message from/to different numeric bases or text, with optional encryption.
 
-Usage: `GlobalConverter <outputBase> <message> [test]`
+Usage: `GlobalConverter input <base> <message output <base> [encrypt|decrypt <algorithm> <key>] [test]`
 
-`outputBase` values:
+`base` values:
 
-    • hexadecimal
+    • 'hexadecimal'
     
-    • octal
+    • 'octal'
     
-    • decimal
+    • 'decimal'
     
-    • binary
+    • 'binary'
     
-    • text
+    • 'text'
 
-Using the `test` argument runs the unit test suite.
+    • Raw number for arbitrary numeric base (may break with higher ones)
+
+`algorithm` values:
+    
+    • 'caesar' (Caesar Cipher)
+
+Using the optional `test` argument runs the unit test suite.
