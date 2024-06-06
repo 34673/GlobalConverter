@@ -7,6 +7,14 @@ public class GlobalConverter{
 		var converter = new NumericConverter(options.inputBase);
 		if(options.inputBase == options.outputBase){
 			GlobalConverter.output = options.message;
+			if(options.encryptionStep != null){
+				if(options.outputBase > 0){
+					Log.warning("[GlobalConverter.main] Skipping undefined encryption on non-text output.");
+				}
+				else{
+					GlobalConverter.output = options.encryptionStep.apply(GlobalConverter.output,options.key);
+				}
+			}
 			Log.info(GlobalConverter.output);
 			return;
 		}
@@ -20,6 +28,14 @@ public class GlobalConverter{
 			converter.base = options.outputBase;
 			var message = options.inputBase > 0 ? GlobalConverter.output : options.message;
 			GlobalConverter.output = converter.fromText(message);
+		}
+		if(options.encryptionStep != null){
+			if(options.outputBase > 0){
+				Log.warning("[GlobalConverter.main] Skipping undefined encryption on non-text output.");
+			}
+			else{
+				GlobalConverter.output = options.encryptionStep.apply(GlobalConverter.output,options.key);
+			}
 		}
 		Log.info(GlobalConverter.output);
 	}

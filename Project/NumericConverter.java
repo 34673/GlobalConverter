@@ -3,20 +3,6 @@ public class NumericConverter{
 	public NumericConverter(int base){
 		this.base = base;
 	}
-	public static int detectBase(String input){
-		var knownBases = new int[]{2,8,10,16};
-		var base = 0;
-		input = input.replace(" ","").trim();
-		for(var character : input.toCharArray()){
-			if(character > 'F'){return 0;}
-			if(character > '9'){return 16;}
-			base = Math.max(base,character - '0');
-		}
-		for(var item : knownBases){
-			if(base < item){return item;}
-		}
-		return base;
-	}
 	public Boolean validateInput(String input){
 		var split = input.split(" ");
 		var maxDigits = (int)Math.ceil(Math.log(256) / Math.log(this.base));
