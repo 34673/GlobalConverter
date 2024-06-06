@@ -20,7 +20,7 @@ Usage: `GlobalConverter input <base> <message output <base> [encrypt|decrypt <al
 
     • Raw number for arbitrary numeric base (may break with higher ones)
 
-`algorithm` values:
+`algorithm` values (only applied to text output):
     
     • 'caesar' (Caesar Cipher)
 
